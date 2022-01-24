@@ -1,0 +1,38 @@
+header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aliceblue;
+    height:100px;
+}
+
+main{
+    height:68vh;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+ }
+
+ footer{
+    height: 100px;
+    display: flex;
+    background-color: aliceblue;
+    justify-content: space-between;
+    align-items: center;
+}
+table {
+    border:1px solid black;
+    display: inline-flex;
+    height: 35vh;
+}
+a{
+    text-decoration: none;
+}
+
+#salary,#salary1,#salary2,#salary3,#salary4,#salary5,#salary6,#salary7{
+    float: right;
+    margin-left: 200px;
+}
+#senior_mid_junior{
+    margin-left: 100px;
+}
