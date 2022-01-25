@@ -12,73 +12,50 @@
 
 <body>
     <header>
-        <a href="index.html">Home</a>
+        <a id="home_url" href="index.html">Home</a>
         <h1>hr managment</h1>
-        <a href="accounting.html">accounting</a>
+        <a id="account_url" href="accounting.html">accounting</a>
     </header>
     <main>
         <div>
-        <table>
-            <tr>
-                <th>Full Name</th>
-                <th id="salary">Salary</th>
-            </tr>
-            <tr>
-            <tr id="name1"></tr>
-            <tr id="salary1"></tr>
-            </tr>
-
-            <tr>
-            <tr id="name2"></tr>
-            <tr id="salary2"></tr>
-            </tr>
-
-            <tr>
-                
-            <tr id="name3"></tr>
-            <tr id="salary3"></tr>
+        <section>
+<form id="form">
+    <label for="=fullName_input">fullName</label>
+    <input type="text" id="fullName_input">
+    <select name="department" id="department" >
+        <option value="none" selected disabled hidden>Select your Department</option>
+        <option value="Administration">Administration</option>
+        <option value="Markting">Markting</option>
+        <option value="Develpment">Develpment</option>
+        <option value="Finance">Finance</option>
+    </select>
+    <select id="level">
+        <option value="none" selected disabled hidden>Select your Level</option>
+        <option value="Junior">Junior</option>
+        <option value="Mid-Senior">Mid-Senior</option>
+        <option value="Senior">Senior</option>
+    </select>
+    <label for="imageUrl_input">imageUrl</label>
+    <input type="text" id="imageUrl_input" >
+    <input type="submit">
+</form>
+        </section >
+    
+    
+        <section id="first_section">
+          
+        </section>
         
-            </tr>
-
-            <tr>
-            <tr id="name4"></tr>
-            <tr id="salary4"></tr>
-            </tr>
-
-            <tr>
-            <tr  id="name5"></tr>
-            <tr id="salary5"></tr>
-            </tr>
-
-            <tr>
-            <tr id="name6"></tr>
-            <tr id="salary6"></tr>
-            </tr>
-
-            <tr>
-            <tr id="name7"></tr>
-            <tr id="salary7"></tr>
-            </tr>
-      
-        </table>
-    </div>
-    <div id="senior_mid_junior">
-        <p id="sumSenior"></p>
-        <p id="sumMidSenior"></p>
-        <p id="sumJunior"></p>
-        <p id="taxSenior"></p>
-        <p id="taxMidSenior"></p>
-        <p id="taxJunior"></p>
     </div>
     </main>
     <footer>
-        <a href="#">facebook</a>
+        <a id="facebook_url"href="#">facebook</a>
         <p>&copy; hr managment 2022</p>
-        <a href="#">sample@gmail.com</a>
+        <a id="email_url"href="#">sample@gmail.com</a>
     </footer>
-    <table>
+    
         <script src="js/app.js"></script>
-    </table>
+    
 </body>
 
 </html>
