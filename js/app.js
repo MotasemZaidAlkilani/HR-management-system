@@ -1,100 +1,90 @@
 'use strict'
-var senior=[];
-var mid_senior=[];
-var junior=[];
-var sumSenior=0;
-var sumMid_senior=0;
-var sumJunior=0;
-  function employee(employeeId,FullName,Department, Level,salary) {
+var form=document.getElementById("form");
+var first_section=document.getElementById("first_section");
+
+
+  function employee(employeeId,FullName,Department, Level,salary,imageUrl) {
     this. employeeId_var = employeeId;
     this.FullName_var = FullName;
     this.Department_var =  Department;
     this.Level_var =Level;
     this.salary_var = salary;
-    this.imageUrl="images/"+this.FullName_var+".png";
+    this.imageUrl=imageUrl;
   }
 
   
-employee.prototype.generateSalary=function(){
+
+employee.prototype.generateRandomSalary=function(){
     if(this.Level_var=="senior"){
-        let random=Math.floor(Math.random() * 2000) + 1500;
+        let random=Math.floor(Math.random() * (2000-1500)+ 1500) ;
         this.salary_var=random;
-        senior.push(this.salary_var);
+        
     }
     else if(this.Level_var =="Mid-Senior"){
-        let random=Math.floor(Math.random() * 1500)+1000;
+        let random=Math.floor(Math.random() * (1500-1000)+1000);
         this.salary_var=random;
-        mid_senior.push(this.salary_var);
+        
     }
     else{
-        let random=Math.floor(Math.random() * 1000) + 500;
+        let random=Math.floor(Math.random() * (1000-500)+ 500) ;
         this.salary_var=random;
-        junior.push(this.salary_var);
+        
     }
+   return this.salary_var;
    
 }
-employee.prototype.calculateSenior=function(){
-    for(var i=0;i<senior.length;i++){
-        sumSenior=sumSenior+senior[i];
-    }
-    return sumSenior;
-}
-employee.prototype.calculateMidSenior=function(){
-    for(var i=0;i<mid_senior.length;i++){
-        sumMid_senior=sumMid_senior+mid_senior[i];
-    }
-    return sumMid_senior;
-}
-employee.prototype.calculateJunior=function(){
-    for(var i=0;i<junior.length;i++){
-        sumJunior=sumJunior+junior[i];
-    }
-    return sumJunior;
-}
 
-employee.prototype.renderNameAndSalary=function(){
-    document.getElementById("name"+this.employeeId_var).innerHTML=this.FullName_var;
-  document.getElementById("salary"+this.employeeId_var).innerHTML=this.salary_var;
+
+function generateRandomEmployeeId(){
+    let random_four_digit=Math.floor(Math.random()*(9999-1000)+1000);
+    return random_four_digit;
 }
 
 
+employee.prototype.showEmployeeInfo=function(){
+    var div=document.createElement('div');
+    first_section.appendChild(div);
+    var img =document.createElement('img');
+    div.appendChild(img);
+    div.style.backgroundColor="#EEEEEE";
+    div.style.textAlign="center"
+    let Fullname_And_Id=document.createElement('p');
+    div.appendChild(Fullname_And_Id);
+    let Department_Level=document.createElement('p');
+    div.appendChild(Department_Level);
+    let Salary=document.createElement('p');
+    div.appendChild(Salary);
+    img.setAttribute('src',this.imageUrl);
+    img.setAttribute('height',100);
+    img.setAttribute('width',100);
+    Fullname_And_Id.textContent=`Name:${this.FullName_var}-ID: ${this.employeeId_var}`;
+    Fullname_And_Id.style.color="#DA1212";
+    Department_Level.textContent=`Department:${this.Department_var}-Level: ${this.Level_var}`;
+    Department_Level.style.color="#DA1212";
+    Salary.textContent= this.salary_var;
+    Salary.style.color="#DA1212";
+}
 
-  let name1 =new employee(1,"Ghazi Samer","Administration","senior",1000);
-  let name2 =new employee(2,"Lana Ali","finance","senior",1000);
-  let name3 =new employee(3,"Tamara Ayoub","Marketing","senior",1000);
-  let name4=new employee(4,"Safi Walid","Administration","Mid-Senior",1000);
-  let name5 =new employee(5,"Omar Zaid","Development","senior",1000);
-  let name6=new employee(6,"Rana Saleh","Development","Junior",1000);
-  let name7 =new employee(7,"mHadi Ahmad","finance","Mid-Senior",1000);
+
+ 
+
+
+form.addEventListener('submit',getAllData);
+function getAllData(event){
+event.preventDefault(); 
+let FullName_var=event.target.fullName_input.value;
+let Department_var=event.target.department.value;
+let Level_var=event.target.level.value;
+let img=event.target.imageUrl_input.value;
+let newEmployee=new employee( generateRandomEmployeeId(),FullName_var,Department_var,Level_var,0,img);
+newEmployee.generateRandomSalary();
+ newEmployee.showEmployeeInfo();
+}
+
+
+
   
 
-
-
-
-  name1.generateSalary();
-  name2.generateSalary();
-  name3.generateSalary();
-  name4.generateSalary();
-  name5.generateSalary();
-  name6.generateSalary();
-  name7.generateSalary();
-
-  name1.renderNameAndSalary();
-  name2.renderNameAndSalary();
-  name3.renderNameAndSalary();
-  name4.renderNameAndSalary();
-  name5.renderNameAndSalary();
-  name6.renderNameAndSalary();
-  name7.renderNameAndSalary();
-  
-
-
-document.getElementById("sumSenior").innerHTML="the Sum of the senior "+ name1.calculateSenior();
-document.getElementById("sumMidSenior").innerHTML="the Sum of the Mid_Senior "+ name1.calculateMidSenior();
-document.getElementById("sumJunior").innerHTML="the Sum of the Junior "+ name1.calculateJunior();
-document.getElementById("taxSenior").innerHTML="tax senior "+name1.calculateSenior()*.075;
-document.getElementById("taxMidSenior").innerHTML="tax Mid_Senior "+name1.calculateMidSenior()*.075;
-document.getElementById("taxJunior").innerHTML="tax Junior "+name1.calculateJunior()*.075;
 
 
 
