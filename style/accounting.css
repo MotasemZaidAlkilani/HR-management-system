@@ -20,6 +20,7 @@ main{
     display: flex;
     margin-top: 20px;
     justify-content: center;
+    text-align: center;
  }
  footer{
     height: 100px;
@@ -54,4 +55,13 @@ margin-left: 10px;
 }
 #email_url{
     margin-right:10px;
+}
+table,th,tr{
+    border:1px solid black;
+}
+th{
+    padding:10px;
+}
+#footer_table{
+    margin-top: 200px;
 }
