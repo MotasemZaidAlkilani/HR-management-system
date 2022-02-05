@@ -58,9 +58,10 @@ avg_salary.Adminstration=Total_salary.Adminstration/departments_sum.Adminstratio
 avg_salary.finance=Total_salary.finance/departments_sum.finance;
 avg_salary.development=Total_salary.development/departments_sum.development;
 avg_salary.markting=Total_salary.markting/departments_sum.markting;
-   }
 
+}
 
+   
    employees_info_calculate();
 
    function showTableInformation(tr,name){
@@ -72,7 +73,12 @@ tr.appendChild(tr_avg_salary);
 tr.appendChild(tr_Total_salary);
 tr_number.textContent=departments_sum[name];
 tr_Total_salary.textContent=Total_salary[name];
-tr_avg_salary.textContent=avg_salary[name];
+if(Number.isNaN(avg_salary[name])){
+    tr_avg_salary.textContent=0;
+}
+else{
+    tr_avg_salary.textContent=avg_salary[name];
+}
 }
 showTableInformation(Administration_tr,names[0]);
 showTableInformation(Finance_tr,names[1]);
