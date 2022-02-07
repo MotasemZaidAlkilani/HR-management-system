@@ -1,10 +1,15 @@
 'use strict'
-var senior=[];
-var mid_senior=[];
-var junior=[];
-var sumSenior=0;
-var sumMid_senior=0;
-var sumJunior=0;
+
+
+let name1 =new employee(1000,"Ghazi Samer","Administration","senior",1000);
+let name2 =new employee(1001,"Lana Ali","finance","senior",1000);
+let name3 =new employee(1002,"Tamara Ayoub","Marketing","senior",1000);
+let name4=new employee(1003,"Safi Walid","Administration","Mid-Senior",1000);
+let name5 =new employee(1004,"Omar Zaid","Development","senior",1000);
+let name6=new employee(1005,"Rana Saleh","Development","Junior",1000);
+let name7 =new employee(1006,"mHadi Ahmad","finance","Mid-Senior",1000);
+
+
   function employee(employeeId,FullName,Department, Level,salary) {
     this. employeeId_var = employeeId;
     this.FullName_var = FullName;
@@ -17,58 +22,28 @@ var sumJunior=0;
   
 employee.prototype.generateSalary=function(){
     if(this.Level_var=="senior"){
-        let random=Math.floor(Math.random() * 2000) + 1500;
-        this.salary_var=random;
-        senior.push(this.salary_var);
+        let random=Math.floor(Math.random() * (2000-1500))+ 1500 ;
+        this.salary_var=random*.075;
+        
     }
     else if(this.Level_var =="Mid-Senior"){
-        let random=Math.floor(Math.random() * 1500)+1000;
-        this.salary_var=random;
-        mid_senior.push(this.salary_var);
+        let random=Math.floor(Math.random() * (1500-1000))+1000;
+        this.salary_var=random*.075;
+        
     }
     else{
-        let random=Math.floor(Math.random() * 1000) + 500;
-        this.salary_var=random;
-        junior.push(this.salary_var);
+        let random=Math.floor(Math.random() * (1000-500)) + 500;
+        this.salary_var=random*.075;
+        
     }
    
 }
-employee.prototype.calculateSenior=function(){
-    for(var i=0;i<senior.length;i++){
-        sumSenior=sumSenior+senior[i];
-    }
-    return sumSenior;
-}
-employee.prototype.calculateMidSenior=function(){
-    for(var i=0;i<mid_senior.length;i++){
-        sumMid_senior=sumMid_senior+mid_senior[i];
-    }
-    return sumMid_senior;
-}
-employee.prototype.calculateJunior=function(){
-    for(var i=0;i<junior.length;i++){
-        sumJunior=sumJunior+junior[i];
-    }
-    return sumJunior;
-}
 
 employee.prototype.renderNameAndSalary=function(){
-    document.getElementById("name"+this.employeeId_var).innerHTML=this.FullName_var;
-  document.getElementById("salary"+this.employeeId_var).innerHTML=this.salary_var;
+    let num=this.employeeId_var-999;
+  document.getElementById("name"+num).innerHTML=this.FullName_var;
+  document.getElementById("salary"+num).innerHTML=this.salary_var;
 }
-
-
-
-  let name1 =new employee(1,"Ghazi Samer","Administration","senior",1000);
-  let name2 =new employee(2,"Lana Ali","finance","senior",1000);
-  let name3 =new employee(3,"Tamara Ayoub","Marketing","senior",1000);
-  let name4=new employee(4,"Safi Walid","Administration","Mid-Senior",1000);
-  let name5 =new employee(5,"Omar Zaid","Development","senior",1000);
-  let name6=new employee(6,"Rana Saleh","Development","Junior",1000);
-  let name7 =new employee(7,"mHadi Ahmad","finance","Mid-Senior",1000);
-  
-
-
 
 
   name1.generateSalary();
@@ -89,12 +64,7 @@ employee.prototype.renderNameAndSalary=function(){
   
 
 
-document.getElementById("sumSenior").innerHTML="the Sum of the senior "+ name1.calculateSenior();
-document.getElementById("sumMidSenior").innerHTML="the Sum of the Mid_Senior "+ name1.calculateMidSenior();
-document.getElementById("sumJunior").innerHTML="the Sum of the Junior "+ name1.calculateJunior();
-document.getElementById("taxSenior").innerHTML="tax senior "+name1.calculateSenior()*.075;
-document.getElementById("taxMidSenior").innerHTML="tax Mid_Senior "+name1.calculateMidSenior()*.075;
-document.getElementById("taxJunior").innerHTML="tax Junior "+name1.calculateJunior()*.075;
+
 
 
 
