@@ -1,5 +1,9 @@
 'use strict'
 
+var form=document.getElementById("form");
+var first_section=document.getElementById("first_section");
+let count=0;
+
 
 
 let name1 =new employee(1000,"Ghazi Samer","Administration","senior",1000);
@@ -61,10 +65,17 @@ employee.prototype.generateRandomSalary=function(){
 }
 
 
+
+function generateRandomEmployeeId(){
+    let random_four_digit=1000+count;
+    count+=1;
+    return random_four_digit;
+}
 employee.prototype.renderNameAndSalary=function(){
     let num=this.employeeId_var-999;
   document.getElementById("name"+num).innerHTML=this.FullName_var;
   document.getElementById("salary"+num).innerHTML=this.salary_var;
+
 }
 
 
