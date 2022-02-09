@@ -1,7 +1,7 @@
 'use strict'
 var form=document.getElementById("form");
 var first_section=document.getElementById("first_section");
-
+let count=0;
 
   function employee(employeeId,FullName,Department, Level,salary,imageUrl) {
     this. employeeId_var = employeeId;
@@ -36,7 +36,8 @@ employee.prototype.generateRandomSalary=function(){
 
 
 function generateRandomEmployeeId(){
-    let random_four_digit=Math.floor(Math.random()*(9999-1000)+1000);
+    let random_four_digit=1000+count;
+    count+=1;
     return random_four_digit;
 }
 
