@@ -6,14 +6,18 @@ let count=0;
 
 
 
-let name1 =new employee(1000,"Ghazi Samer","Administration","senior",1000);
-let name2 =new employee(1001,"Lana Ali","finance","senior",1000);
-let name3 =new employee(1002,"Tamara Ayoub","Marketing","senior",1000);
-let name4=new employee(1003,"Safi Walid","Administration","Mid-Senior",1000);
-let name5 =new employee(1004,"Omar Zaid","Development","senior",1000);
-let name6=new employee(1005,"Rana Saleh","Development","Junior",1000);
-let name7 =new employee(1006,"mHadi Ahmad","finance","Mid-Senior",1000);
+let name1 =new Employee(1000,"Ghazi Samer","Administration","Senior",1000);
+let name2 =new Employee(1001,"Lana Ali","finance","Senior",1000);
+let name3 =new Employee(1002,"Tamara Ayoub","Marketing","Senior",1000);
+let name4=new Employee(1003,"Safi Walid","Administration","Mid-Senior",1000);
+let name5 =new Employee(1004,"Omar Zaid","Development","Senior",1000);
+let name6=new Employee(1005,"Rana Saleh","Development","Junior",1000);
+let name7 =new Employee(1006,"mHadi Ahmad","finance","Mid-Senior",1000);
 
+
+
+  function Employee(employeeId,FullName,Department, Level,salary) {
+    this. employeeId_var = employeeId;
 
  
 
@@ -23,8 +27,7 @@ var array=[];
 checkLocalAndPush();
 form.addEventListener('submit',getAllData);
 
-  function employee(employeeId,FullName,Department, Level,salary,imageUrl) {
-    this.employeeId_var = employeeId;
+  
 
     this.FullName_var = FullName;
     this.Department_var =  Department;
@@ -34,17 +37,18 @@ form.addEventListener('submit',getAllData);
   }
 
   
-
-employee.prototype.generateRandomSalary=function(){
-    if(this.Level_var=="senior"){
+  Employee.prototype.generateSalary=function(){
+    if(this.Level_var=="Senior"){
 
         let random=Math.floor(Math.random() * (2000-1500))+ 1500 ;
-        this.salary_var=random*.075;
+        this.salary_var=random-(random*.075);
         
     }
-//     else if(this.Level_var =="Mid-Senior"){
-//         let random=Math.floor(Math.random() * (1500-1000))+1000;
-//         this.salary_var=random*.075;
+
+    else if(this.Level_var =="Mid-Senior"){
+        let random=Math.floor(Math.random() * (1500-1000))+1000;
+        this.salary_var=random-(random*.075);
+
         
 //     }
 // //     else{
@@ -57,7 +61,10 @@ employee.prototype.generateRandomSalary=function(){
         this.salary_var=RandomSalary(1500,1000);
     }
     else{
-        this.salary_var=RandomSalary(1000,500);       
+
+        let random=Math.floor(Math.random() * (1000-500)) + 500;
+        this.salary_var=random-(random*.075);
+        
 
     }
    return this.salary_var;
@@ -66,12 +73,15 @@ employee.prototype.generateRandomSalary=function(){
 
 
 
+
+
+
 function generateRandomEmployeeId(){
     let random_four_digit=1000+count;
     count+=1;
     return random_four_digit;
 }
-employee.prototype.renderNameAndSalary=function(){
+Employee.prototype.renderNameAndSalary=function(){
     let num=this.employeeId_var-999;
   document.getElementById("name"+num).innerHTML=this.FullName_var;
   document.getElementById("salary"+num).innerHTML=this.salary_var;
