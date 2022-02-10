@@ -86,7 +86,7 @@ showTableInformation(Develpment_tr,names[2]);
 showTableInformation(Markting_tr,names[3]);
 let Total_employees_departments=departments_sum[names[0]]+departments_sum[names[1]]+departments_sum[names[2]]+departments_sum[names[3]];
 let Total_salary_departments=Total_salary[names[0]]+Total_salary[names[1]]+Total_salary[names[2]]+Total_salary[names[3]];
-let avg_salary_departments=Total_salary_departments/4;
+let avg_salary_departments=Total_salary_departments/Total_employees_departments;
 
 function showFooterTable(total_employee,total_salary,avg_salary){
     let Total_employees_departments=document.createElement("td");
