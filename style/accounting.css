@@ -2,14 +2,25 @@ header{
     display:flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aliceblue;
+    background-color: #11468F;
     height:100px;
+}
+header a,h1{
+    color: aliceblue;
+}
+
+#home_url{
+    margin-left: 10px;
+}
+#account_url{
+    margin-right: 10px;
 }
 main{
     height:68vh;
     display: flex;
     margin-top: 20px;
     justify-content: center;
+    text-align: center;
  }
  footer{
     height: 100px;
@@ -20,4 +31,37 @@ main{
 }
 a{
     text-decoration: none;
+}
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family:sans-serif ;
+}
+footer{
+    display: flex;
+    height:100px;
+    position: relative;
+    background-color: #11468F;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer a,p{
+    color: aliceblue;
+}
+#facebook_url{
+margin-left: 10px;
+}
+#email_url{
+    margin-right:10px;
+}
+table,th,tr{
+    border:1px solid black;
+}
+th{
+    padding:10px;
+}
+#footer_table{
+    margin-top: 200px;
 }
